@@ -1,0 +1,195 @@
+:root {
+  --color-primary: #536ad0;
+  --color-cream: #fff8f0;
+  --color-dark: #1f2024;
+
+  --font-main: "Instrument Sans", sans-serif;
+  --layout-padding: clamp(20px, 5vw, 80px);
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-cream);
+  color: var(--color-dark);
+  overflow-x: hidden;
+}
+
+/* ================= NAV ================= */
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 2000; /* 👈 higher than overlay */
+  background: rgba(255, 248, 240, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.nav-container {
+  padding: 1.4rem var(--layout-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 30px;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+}
+
+.nav-links a:not(.btn) {
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav-links a:not(.btn):hover {
+  color: var(--color-primary);
+}
+
+.nav-links a:not(.btn) {
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+/* Buttons */
+
+.btn {
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--color-dark);
+  color: var(--color-cream);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.btn-secondary {
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: var(--color-cream);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Hero text bottom-left */
+
+.hero-content {
+  position: absolute;
+  left: var(--layout-padding);
+  bottom: clamp(80px, 12vh, 140px);
+  max-width: 620px;
+  z-index: 2;
+}
+/* Typography */
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  font-weight: 500;
+}
+
+.tagline {
+  margin-top: 0.8rem;
+  opacity: 0.7;
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
+.flock-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+
+#flock {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Footer */
+
+footer {
+  padding: 2rem var(--layout-padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ================= Mobile Nav ================= */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  z-index: 2100;
+}
+
+.hamburger .icon {
+  width: 28px;
+  height: 28px;
+  display: none;
+}
+
+.hamburger .icon-hamburger {
+  display: block;
+}
+
+.hamburger.active .icon-hamburger {
+  display: none;
+}
+
+.hamburger.active .icon-close {
+  display: block;
+}
+
+/* Lock scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
